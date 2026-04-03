@@ -1,0 +1,1 @@
+::: careamics.config.algorithms

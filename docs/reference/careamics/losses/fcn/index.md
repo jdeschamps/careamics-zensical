@@ -1,0 +1,1 @@
+::: careamics.losses.fcn
