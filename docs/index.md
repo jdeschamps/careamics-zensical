@@ -75,15 +75,14 @@ Documentation for version [
     <!-- [:octicons-arrow-right-24: Algorithms]() -->
     (Soon)
 
--   :octicons-code-24:{ .lg .middle } __References__
+-   :octicons-code-24:{ .lg .middle } __API Reference__
 
     ---
 
     Code documentation for CAREamics.
 
 
-    (Soon)
-    <!-- [:octicons-arrow-right-24: Code reference]() -->
+    [:octicons-arrow-right-24: API Reference](./reference/)
 
 </div>
 

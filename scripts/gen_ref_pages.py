@@ -32,6 +32,7 @@ PACKAGE_NAME = "careamics"
 PACKAGE_DIR = SRC_DIR / PACKAGE_NAME
 OUT_DIR = ROOT / "docs" / "reference"
 TOML_PATH = ROOT / "zensical.toml"
+GITHUB_SOURCE_URL = "https://github.com/CAREamics/careamics/blob/main/src"
 
 SKIP_FILES = {"__main__.py", "conftest.py", "py.typed"}
 SKIP_MODULES = {"careamist_v2"}
@@ -135,11 +136,26 @@ def _dotted_to_md_path(dotted: str, is_init: bool) -> str:
         return "/".join(parts[:-1]) + f"/{parts[-1]}.md"
 
 
+def _dotted_to_source_url(dotted_path: str, is_init: bool) -> str:
+    """Convert a dotted path to a GitHub source URL."""
+    parts = dotted_path.split(".")
+    if is_init:
+        return f"{GITHUB_SOURCE_URL}/{'/'.join(parts)}/__init__.py"
+    else:
+        return f"{GITHUB_SOURCE_URL}/{'/'.join(parts[:-1])}/{parts[-1]}.py"
+
+
 def _write_md(rel_md: str, dotted_path: str) -> None:
-    """Write a single .md file with the mkdocstrings identifier."""
+    """Write a single .md file with a GitHub source link and mkdocstrings identifier."""
     out_path = OUT_DIR / rel_md
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(f"::: {dotted_path}\n")
+    is_init = rel_md.endswith("index.md")
+    source_url = _dotted_to_source_url(dotted_path, is_init)
+    out_path.write_text(
+        f"[:fontawesome-brands-github: Source]({source_url})\n"
+        f"\n"
+        f"::: {dotted_path}\n"
+    )
 
 
 def _format_nav_title(name: str) -> str:

@@ -424,6 +424,7 @@ paths = ["from_git/careamics/src"]
 docstring_style = "numpy"
 inherited_members = true
 show_source = false
+filters = ["!^_"]
 
 # extensions
 [project.markdown_extensions.admonition] # necessary for admonitions
