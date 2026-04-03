@@ -1,1 +1,0 @@
-::: careamics.config.configuration
