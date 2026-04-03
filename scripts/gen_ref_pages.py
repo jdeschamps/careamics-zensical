@@ -34,6 +34,9 @@ OUT_DIR = ROOT / "docs" / "reference"
 TOML_PATH = ROOT / "zensical.toml"
 
 SKIP_FILES = {"__main__.py", "conftest.py", "py.typed"}
+SKIP_MODULES = {"careamist_v2"}
+SKIP_PREFIXES = ("ng_",)
+SKIP_DIRS = {"dataset_ng", "ng_factories", "ng_configs"}
 
 
 def is_private(name: str) -> bool:
@@ -80,10 +83,18 @@ def _walk_package(package_path: Path, dotted_path: str) -> list:
         if child.is_dir():
             if is_private(child.name):
                 continue
+            if child.name in SKIP_DIRS:
+                continue
+            if any(child.name.startswith(p) for p in SKIP_PREFIXES):
+                continue
             if (child / "__init__.py").exists():
                 subpackages.append(child)
         elif child.is_file() and child.suffix == ".py":
             if is_private(child.name):
+                continue
+            if child.stem in SKIP_MODULES:
+                continue
+            if any(child.stem.startswith(p) for p in SKIP_PREFIXES):
                 continue
             modules.append(child)
 
@@ -145,6 +156,8 @@ def _write_reference_index() -> None:
         and (p / "__init__.py").exists()
         and not is_private(p.name)
         and p.name != "__pycache__"
+        and p.name not in SKIP_DIRS
+        and not any(p.name.startswith(pr) for pr in SKIP_PREFIXES)
     )
 
     lines = [
@@ -164,7 +177,7 @@ def _write_reference_index() -> None:
 
     for pkg in subpackages:
         title = _format_nav_title(pkg)
-        lines.append(f"-   :octicons-package-24:{{{{ .lg .middle }}}} __{title}__")
+        lines.append(f"-   :octicons-package-24:{{ .lg .middle }} __{title}__")
         lines.append("")
         lines.append("    ---")
         lines.append("")
