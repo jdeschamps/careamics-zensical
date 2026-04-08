@@ -2192,32 +2192,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#careamics.config.algorithms.n2v_algorithm_config.N2VAlgorithm.model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        model
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#careamics.config.algorithms.n2v_algorithm_config.N2VAlgorithm.monitor_metric" class="md-nav__link">
     <span class="md-ellipsis">
       
         monitor_metric
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#careamics.config.algorithms.n2v_algorithm_config.N2VAlgorithm.n2v_config" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        n2v_config
       
     </span>
   </a>
@@ -2295,17 +2273,6 @@
     <span class="md-ellipsis">
       
         get_compatible_algorithms
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#careamics.config.algorithms.n2v_algorithm_config.N2VAlgorithm.get_num_input_channels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        get_num_input_channels
       
     </span>
   </a>
@@ -9697,32 +9664,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#careamics.config.algorithms.n2v_algorithm_config.N2VAlgorithm.model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        model
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#careamics.config.algorithms.n2v_algorithm_config.N2VAlgorithm.monitor_metric" class="md-nav__link">
     <span class="md-ellipsis">
       
         monitor_metric
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#careamics.config.algorithms.n2v_algorithm_config.N2VAlgorithm.n2v_config" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        n2v_config
       
     </span>
   </a>
@@ -9800,17 +9745,6 @@
     <span class="md-ellipsis">
       
         get_compatible_algorithms
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#careamics.config.algorithms.n2v_algorithm_config.N2VAlgorithm.get_num_input_channels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        get_num_input_channels
       
     </span>
   </a>
@@ -10111,28 +10045,6 @@
 
 
 
-<h3 id="careamics.config.algorithms.n2v_algorithm_config.N2VAlgorithm.model" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">model</span></code>
-
-  <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
-  </span>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Model parameters.</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-attribute">
-
-
-
 <h3 id="careamics.config.algorithms.n2v_algorithm_config.N2VAlgorithm.monitor_metric" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">monitor_metric</span> <span class="o">=</span> <span class="s1">&#39;val_loss&#39;</span></code>
 
@@ -10146,31 +10058,7 @@
 
     <div class="doc doc-contents ">
 
-        <p>Metric to monitor for the learning rate scheduler. Used in the returned dict of
-PyTorch Lightning <code>configure_optimizers</code> method.</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-attribute">
-
-
-
-<h3 id="careamics.config.algorithms.n2v_algorithm_config.N2VAlgorithm.n2v_config" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">n2v_config</span> <span class="o">=</span> <span class="n">N2VManipulateConfig</span><span class="p">()</span></code>
-
-  <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
-      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
-  </span>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Noise2Void pixel manipulation configuration.</p>
+        <p>Metric to monitor for the learning rate scheduler.</p>
 
     </div>
 
@@ -10444,47 +10332,6 @@ PyTorch Lightning <code>configure_optimizers</code> method.</p>
             <td>
               <div class="doc-md-description">
                 <p>List of compatible algorithms.</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="careamics.config.algorithms.n2v_algorithm_config.N2VAlgorithm.get_num_input_channels" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">get_num_input_channels</span><span class="p">()</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Get the number of input channels.</p>
-
-
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Number of input channels.</p>
               </div>
             </td>
           </tr>

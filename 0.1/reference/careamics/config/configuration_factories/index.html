@@ -12832,7 +12832,7 @@
 
 
 <h2 id="careamics.config.configuration_factories.create_care_configuration" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">create_care_configuration</span><span class="p">(</span><span class="n">experiment_name</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">num_epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">augmentations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">independent_channels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mae&#39;</span><span class="p">,</span> <span class="n">n_channels_in</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_channels_out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">trainer_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;Adam&#39;</span><span class="p">,</span> <span class="n">optimizer_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lr_scheduler</span><span class="o">=</span><span class="s1">&#39;ReduceLROnPlateau&#39;</span><span class="p">,</span> <span class="n">lr_scheduler_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">train_dataloader_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">val_dataloader_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">checkpoint_params</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">create_care_configuration</span><span class="p">(</span><span class="n">experiment_name</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">num_epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">augmentations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">independent_channels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mae&#39;</span><span class="p">,</span> <span class="n">n_channels_in</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_channels_out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">trainer_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;Adam&#39;</span><span class="p">,</span> <span class="n">optimizer_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lr_scheduler</span><span class="o">=</span><span class="s1">&#39;ReduceLROnPlateau&#39;</span><span class="p">,</span> <span class="n">lr_scheduler_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">train_dataloader_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">val_dataloader_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">checkpoint_params</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
 </h2>
 
@@ -13012,7 +13012,7 @@ and XYRandomRotate90 (in XY) to the images.</p>
               </div>
             </td>
             <td>
-                  <code>False</code>
+                  <code>True</code>
             </td>
           </tr>
           <tr class="doc-section-item">
@@ -13304,9 +13304,9 @@ to replace the default augmentations:</p>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="gp">... </span>    <span class="p">]</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="gp">... </span><span class="p">)</span>
 </code></pre></div>
-    <p>If you are training multiple channels they will be trained together by default,
-you simply need to specify the number of channels input (and the output if
-different):</p>
+    <p>If you are training multiple channels they will be trained independently by default,
+you simply need to specify the number of channels input (and optionally, the number
+of channels output):</p>
     <div class="language-pycon highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="n">create_care_configuration</span><span class="p">(</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">... </span>    <span class="n">experiment_name</span><span class="o">=</span><span class="s2">&quot;care_experiment&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">... </span>    <span class="n">data_type</span><span class="o">=</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
@@ -13314,13 +13314,12 @@ different):</p>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="gp">... </span>    <span class="n">patch_size</span><span class="o">=</span><span class="p">[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">],</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="gp">... </span>    <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="gp">... </span>    <span class="n">num_epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="gp">... </span>    <span class="n">n_channels_in</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="gp">... </span>    <span class="n">n_channels_out</span><span class="o">=</span><span class="mi">2</span> <span class="c1"># if applicable</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="gp">... </span>    <span class="n">n_channels_in</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="c1"># number of input channels</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="gp">... </span>    <span class="n">n_channels_out</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># if applicable</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="gp">... </span><span class="p">)</span>
 </code></pre></div>
-    <p>If instead you want to train channels independently, you need to turn on the
-<code>independent_channels</code> parameter (input and output channels must be the same in this
-case):</p>
+    <p>If instead you want to train multiple channels together, you need to turn off the
+<code>independent_channels</code> parameter:</p>
     <div class="language-pycon highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="n">create_care_configuration</span><span class="p">(</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">... </span>    <span class="n">experiment_name</span><span class="o">=</span><span class="s2">&quot;care_experiment&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">... </span>    <span class="n">data_type</span><span class="o">=</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
@@ -13328,9 +13327,10 @@ case):</p>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="gp">... </span>    <span class="n">patch_size</span><span class="o">=</span><span class="p">[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">],</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="gp">... </span>    <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="gp">... </span>    <span class="n">num_epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="gp">... </span>    <span class="n">independent_channels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="gp">... </span>    <span class="n">independent_channels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="gp">... </span>    <span class="n">n_channels_in</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="gp">... </span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="gp">... </span>    <span class="n">n_channels_out</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># if applicable</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="gp">... </span><span class="p">)</span>
 </code></pre></div>
     <p>If you would like to train on CZI files, use <code>"czi"</code> as <code>data_type</code> and <code>"SCYX"</code> as
 <code>axes</code> for 2-D or <code>"SCZYX"</code> for 3-D denoising. Note that <code>"SCYX"</code> can also be used
@@ -14564,9 +14564,8 @@ channels. Likewise, if you set the number of channels, then "C" must be present 
 <code>axes</code>.</p>
 <p>To set the number of output channels, use the <code>n_channels_out</code> parameter. If it is
 not specified, it will be assumed to be equal to <code>n_channels_in</code>.</p>
-<p>By default, all channels are trained independently. To train all channels together,
-set <code>independent_channels</code> to True. If the number of input and output channels are
-the same, channels cannot be independent.</p>
+<p>By default, all channels are trained together. To train all channels independently,
+set <code>independent_channels</code> to True.</p>
 <p>By setting <code>augmentations</code> to <code>None</code>, the default augmentations (flip in X and Y,
 rotations by 90 degrees in the XY plane) are applied. Rather than the default
 augmentations, a list of augmentations can be passed to the <code>augmentations</code>
@@ -15022,8 +15021,8 @@ If left as <code>None</code>, the empty dict <code>{}</code> will be used, this 
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="gp">... </span><span class="p">)</span>
 </code></pre></div>
     <p>If you are training multiple channels they will be trained independently by default,
-you simply need to specify the number of channels input (the number of output
-channels must be the same as input in this case):</p>
+you simply need to specify the number of channels input (and optionally, the number
+of channels output):</p>
     <div class="language-pycon highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="n">create_n2n_configuration</span><span class="p">(</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">... </span>    <span class="n">experiment_name</span><span class="o">=</span><span class="s2">&quot;n2n_experiment&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">... </span>    <span class="n">data_type</span><span class="o">=</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
@@ -15032,10 +15031,11 @@ channels must be the same as input in this case):</p>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="gp">... </span>    <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="gp">... </span>    <span class="n">num_epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="gp">... </span>    <span class="n">n_channels_in</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="c1"># number of input channels</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="gp">... </span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="gp">... </span>    <span class="n">n_channels_out</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># if applicable</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="gp">... </span><span class="p">)</span>
 </code></pre></div>
-    <p>If instead you want to train multiple channels with different number of input and
-output channels, you need to turn off the <code>independent_channels</code> parameter:</p>
+    <p>If instead you want to train multiple channels together, you need to turn off the
+<code>independent_channels</code> parameter:</p>
     <div class="language-pycon highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="n">create_n2n_configuration</span><span class="p">(</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">... </span>    <span class="n">experiment_name</span><span class="o">=</span><span class="s2">&quot;n2n_experiment&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">... </span>    <span class="n">data_type</span><span class="o">=</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
