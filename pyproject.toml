@@ -7,10 +7,6 @@ requires-python = ">=3.13"
 dependencies = [
     "mkdocstrings-python>=2.0.3",
     "mike",
-]
-
-[dependency-groups]
-dev = [
     "zensical>=0.0.30", # 24
 ]
 
