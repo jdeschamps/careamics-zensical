@@ -46,5 +46,8 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git fetch origin gh-pages --depth=1 || true
-          uv run mike deploy --push --update-aliases latest
+          VERSION=$(sed 's/^v//; s/\([0-9]*\.[0-9]*\).*/\1/' extras/version.txt)
+          uv run mike deploy --push --update-aliases "$VERSION" latest
+          uv run mike set-default --push latest
+          uv run mike set-default --push latest
         id: deployment
