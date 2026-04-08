@@ -28,6 +28,7 @@ clone_or_update_repo() {
 
   if [[ -d "$dest/.git" ]]; then
     echo "Updating '$name' ..."
+    git -C "$dest" checkout main
     git -C "$dest" pull --ff-only
   else
     echo "Cloning '$name' ..."

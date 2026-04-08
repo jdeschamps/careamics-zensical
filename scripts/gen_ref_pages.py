@@ -37,7 +37,7 @@ GITHUB_SOURCE_URL = "https://github.com/CAREamics/careamics/blob/main/src"
 SKIP_FILES = {"__main__.py", "conftest.py", "py.typed"}
 SKIP_MODULES = {"careamist_v2"}
 SKIP_PREFIXES = ("ng_",)
-SKIP_DIRS = {"dataset_ng", "ng_factories", "ng_configs"}
+SKIP_DIRS = {"dataset_ng", "ng_factories", "ng_configs", "patch_filter", "patching_strategies"}
 
 
 def is_private(name: str) -> bool:
@@ -151,7 +151,11 @@ def _write_md(rel_md: str, dotted_path: str) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     is_init = rel_md.endswith("index.md")
     source_url = _dotted_to_source_url(dotted_path, is_init)
+    # Derive title from the last component of the dotted path
+    name = dotted_path.rsplit(".", 1)[-1]
+    title = _format_nav_title(name)
     out_path.write_text(
+        f"---\ntitle: {title}\n---\n\n"
         f"[:fontawesome-brands-github: Source]({source_url})\n"
         f"\n"
         f"::: {dotted_path}\n"
@@ -160,7 +164,46 @@ def _write_md(rel_md: str, dotted_path: str) -> None:
 
 def _format_nav_title(name: str) -> str:
     """Format a module/package name for navigation display."""
-    return name.replace("_", " ").title()
+    import re
+
+    # Acronyms that should be fully uppercased.
+    # Words followed by \b match as whole words; those marked with (?=\s|$)
+    # only match when followed by a space or end-of-string.
+    _ACRONYMS = {
+        "n2v": "N2V",
+        "fcn": "FCN",
+        "lvae": "LVAE",
+        "xy": "XY",
+        "tta": "TTA",
+        "io": "IO",
+        "care": "CARE",
+        "hdn": "HDN",
+        "pn2v": "PN2V",
+        "vae": "VAE",
+        "unet": "UNet",
+    }
+    # Acronyms that must only match before a space or end-of-string
+    _SPACE_ONLY = {"xy", "tta", "io", "care", "unet"}
+
+    title = name.replace("_", " ").title()
+
+    for lower, upper in _ACRONYMS.items():
+        if lower in _SPACE_ONLY:
+            title = re.sub(
+                rf"\b{re.escape(lower)}\b(?=\s|$)",
+                upper,
+                title,
+                flags=re.IGNORECASE,
+            )
+        else:
+            title = re.sub(
+                rf"\b{re.escape(lower)}\b",
+                upper,
+                title,
+                flags=re.IGNORECASE,
+            )
+
+    return title
 
 
 def _write_reference_index() -> None:
@@ -281,6 +324,38 @@ def check_nav(nav: list) -> bool:
     return True
 
 
+def write_nav_to_toml(nav: list) -> None:
+    """Replace the API Reference nav block in zensical.toml with the generated nav."""
+    import re
+
+    toml_text = TOML_PATH.read_text()
+
+    # Build the replacement TOML block
+    inner_lines = []
+    inner_lines.append('    "reference/index.md",')
+    inner_lines.extend(nav_to_toml_lines(nav, indent=1))
+    replacement = '{"API Reference" = [\n' + "\n".join(inner_lines) + "\n  ]}"
+
+    # Match the existing {"API Reference" = [ ... ]} block
+    # This regex handles any content (including nested braces) between the brackets
+    pattern = re.compile(
+        r'\{"API Reference"\s*=\s*\[.*?\]\}',
+        re.DOTALL,
+    )
+
+    match = pattern.search(toml_text)
+    if not match:
+        print(
+            "Error: could not find 'API Reference' block in zensical.toml.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    new_text = toml_text[: match.start()] + replacement + toml_text[match.end() :]
+    TOML_PATH.write_text(new_text)
+    print(f"Updated API Reference nav in {TOML_PATH}")
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -293,6 +368,11 @@ def main() -> None:
         action="store_true",
         help="Compare generated nav with zensical.toml and exit non-zero on mismatch.",
     )
+    parser.add_argument(
+        "--write",
+        action="store_true",
+        help="Write the generated nav directly into zensical.toml.",
+    )
     args = parser.parse_args()
 
     nav = generate_md_files()
@@ -300,6 +380,9 @@ def main() -> None:
     print()
     print("=== Nav block for zensical.toml ===")
     print_nav_block(nav)
+
+    if args.write:
+        write_nav_to_toml(nav)
 
     if args.check:
         if not check_nav(nav):
