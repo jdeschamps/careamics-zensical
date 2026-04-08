@@ -83,6 +83,12 @@ write_version() {
     return 1
   fi
 
+  # Checkout the stable tag so the source code matches the version label.
+  # This ensures the API reference is built from the tagged release,
+  # not from main (which may contain pre-release changes).
+  echo "Checking out $tag in $repo_dir"
+  git -C "$repo_dir" checkout "$tag"
+
   echo "Writing version $tag to $version_file"
   mkdir -p "$(dirname "$version_file")"
   echo "$tag" > "$version_file"

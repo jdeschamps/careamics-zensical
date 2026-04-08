@@ -1,5 +1,9 @@
 # Github pages
 
+!!! warning "Deprecated"
+
+    These instructions are deprecated.
+
 The Github pages are built using [mkdocs](https://www.mkdocs.org/), more specifically the 
 [mkdocs-material](https://squidfunk.github.io/mkdocs-material/) theme. Modifications to
 the theme were greatly inspired from [pydev-guide](https://github.com/pydev-guide/pydev-guide.github.io).
