@@ -337,9 +337,9 @@ provider = "mike"
 #
 # Read more: https://zensical.org/docs/customization/#additional-css
 #
-# extra_css = [
-#     "stylesheets/extra.css",
-# ]
+extra_css = [
+    "stylesheets/extra.css",
+]
 
 # With the `extra_javascript` option you can add your own JavaScript to your
 # project to customize the behavior according to your needs.
@@ -356,8 +356,8 @@ provider = "mike"
 #variant = "classic" # traditional material for MkDocs look
 # https://zensical.org/docs/customization/#extending-the-theme
 custom_dir = "overrides"
-favicon = "docs/images/favicon_careamics.png"
-logo = "docs/images/logo_careamics_v2_logo.png"
+favicon = "images/favicon_careamics.png"
+logo = "images/logo_careamics_v2_logo.png"
 language = "en"
 features = [
     "announce.dismiss", # allow dismissing announcement bar
