@@ -73,12 +73,13 @@ write_version() {
     return 1
   fi
 
-  # hatch-vcs uses git tags; grab the latest one (e.g. v0.1.0)
+  # hatch-vcs uses git tags; grab the latest stable one (e.g. v0.1.0)
+  # Skip pre-release tags (rc, alpha, beta, dev)
   local tag
-  tag="$(git -C "$repo_dir" describe --tags --abbrev=0 2>/dev/null || true)"
+  tag="$(git -C "$repo_dir" tag --list 'v[0-9]*' --sort=-v:refname | grep -v -E '(rc|alpha|beta|dev)' | head -1 || true)"
 
   if [[ -z "$tag" ]]; then
-    echo "Warning: no git tag found in $repo_dir, skipping version extraction."
+    echo "Warning: no stable git tag found in $repo_dir, skipping version extraction."
     return 1
   fi
 
