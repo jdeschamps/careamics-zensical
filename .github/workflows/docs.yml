@@ -32,10 +32,10 @@ jobs:
         run: bash scripts/pull_from_repos.sh
 
       - name: Generate reference pages
-        run: python scripts/gen_ref_pages.py
+        run: uv run python scripts/gen_ref_pages.py
 
       - name: Build documentation
-        run: zensical build --clean
+        run: uv run zensical build --clean
 
       # - uses: actions/upload-pages-artifact@v4
       #   with:
@@ -45,5 +45,5 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          mike deploy --push --update-aliases latest
+          uv run mike deploy --push --update-aliases latest
         id: deployment
