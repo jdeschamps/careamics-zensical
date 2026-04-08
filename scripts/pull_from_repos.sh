@@ -63,6 +63,30 @@ copy_careamics_docs_v1() {
 }
 
 
+# write the careamics version (from its latest git tag) to extras/version.txt
+write_version() {
+  local repo_dir="$FROM_GIT_DIR/careamics"
+  local version_file="$ROOT_DIR/extras/version.txt"
+
+  if [[ ! -d "$repo_dir/.git" ]]; then
+    echo "Error: $repo_dir is not a git repo, skipping version extraction."
+    return 1
+  fi
+
+  # hatch-vcs uses git tags; grab the latest one (e.g. v0.1.0)
+  local tag
+  tag="$(git -C "$repo_dir" describe --tags --abbrev=0 2>/dev/null || true)"
+
+  if [[ -z "$tag" ]]; then
+    echo "Warning: no git tag found in $repo_dir, skipping version extraction."
+    return 1
+  fi
+
+  echo "Writing version $tag to $version_file"
+  mkdir -p "$(dirname "$version_file")"
+  echo "$tag" > "$version_file"
+}
+
 # -- Main
 
 main() {
@@ -73,6 +97,8 @@ main() {
   done
 
   # copy_careamics_docs_v2
+
+  write_version
 }
 
 main "$@"
