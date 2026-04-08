@@ -94,6 +94,21 @@
         <loc>https://careamics.github.io/0.1/reference/careamics/careamist/</loc>
       </url>
       <url>
+        <loc>https://careamics.github.io/0.1/reference/careamics/nm_training_placeholder/</loc>
+      </url>
+      <url>
+        <loc>https://careamics.github.io/0.1/reference/careamics/cli/</loc>
+      </url>
+      <url>
+        <loc>https://careamics.github.io/0.1/reference/careamics/cli/conf/</loc>
+      </url>
+      <url>
+        <loc>https://careamics.github.io/0.1/reference/careamics/cli/main/</loc>
+      </url>
+      <url>
+        <loc>https://careamics.github.io/0.1/reference/careamics/cli/utils/</loc>
+      </url>
+      <url>
         <loc>https://careamics.github.io/0.1/reference/careamics/config/</loc>
       </url>
       <url>
@@ -176,42 +191,6 @@
       </url>
       <url>
         <loc>https://careamics.github.io/0.1/reference/careamics/config/data/tile_information/</loc>
-      </url>
-      <url>
-        <loc>https://careamics.github.io/0.1/reference/careamics/config/data/patch_filter/</loc>
-      </url>
-      <url>
-        <loc>https://careamics.github.io/0.1/reference/careamics/config/data/patch_filter/filter_config/</loc>
-      </url>
-      <url>
-        <loc>https://careamics.github.io/0.1/reference/careamics/config/data/patch_filter/mask_filter_config/</loc>
-      </url>
-      <url>
-        <loc>https://careamics.github.io/0.1/reference/careamics/config/data/patch_filter/max_filter_config/</loc>
-      </url>
-      <url>
-        <loc>https://careamics.github.io/0.1/reference/careamics/config/data/patch_filter/meanstd_filter_config/</loc>
-      </url>
-      <url>
-        <loc>https://careamics.github.io/0.1/reference/careamics/config/data/patch_filter/shannon_filter_config/</loc>
-      </url>
-      <url>
-        <loc>https://careamics.github.io/0.1/reference/careamics/config/data/patching_strategies/</loc>
-      </url>
-      <url>
-        <loc>https://careamics.github.io/0.1/reference/careamics/config/data/patching_strategies/random_patching_config/</loc>
-      </url>
-      <url>
-        <loc>https://careamics.github.io/0.1/reference/careamics/config/data/patching_strategies/sequential_patching_config/</loc>
-      </url>
-      <url>
-        <loc>https://careamics.github.io/0.1/reference/careamics/config/data/patching_strategies/stratified_patching_config/</loc>
-      </url>
-      <url>
-        <loc>https://careamics.github.io/0.1/reference/careamics/config/data/patching_strategies/tiled_patching_config/</loc>
-      </url>
-      <url>
-        <loc>https://careamics.github.io/0.1/reference/careamics/config/data/patching_strategies/whole_patching_config/</loc>
       </url>
       <url>
         <loc>https://careamics.github.io/0.1/reference/careamics/config/lightning/</loc>
