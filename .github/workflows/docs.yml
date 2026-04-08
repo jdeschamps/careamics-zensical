@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install zensical git+https://github.com/squidfunk/mike.git
-      - run: sh scripts/pull_from_repos.sh
+      - run: bash scripts/pull_from_repos.sh
       - run: python scripts/gen_ref_pages.py
       - run: zensical build --clean
       - uses: actions/upload-pages-artifact@v4
