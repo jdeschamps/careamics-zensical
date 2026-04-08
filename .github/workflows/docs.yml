@@ -24,7 +24,7 @@ jobs:
         uses: astral-sh/setup-uv@v7
       
       - name: Install dependencies
-        run: uv pip install --no-cache-dir -e
+        run: uv sync
 
         # - run: pip install zensical git+https://github.com/squidfunk/mike.git
         
