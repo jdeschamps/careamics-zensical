@@ -356,8 +356,8 @@ provider = "mike"
 #variant = "classic" # traditional material for MkDocs look
 # https://zensical.org/docs/customization/#extending-the-theme
 custom_dir = "overrides"
-favicon = "images/favicon_careamics.png"
-logo = "images/logo_careamics_v2_logo.png"
+favicon = "docs/images/favicon_careamics.png"
+logo = "docs/images/logo_careamics_v2_logo.png"
 language = "en"
 features = [
     "announce.dismiss", # allow dismissing announcement bar
