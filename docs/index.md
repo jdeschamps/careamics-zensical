@@ -24,11 +24,7 @@ CAREamics is a library aimed at simplifying the use of state of the art image
 restoration deep-learning algorithms, from well-established algorithms (CARE, Noise2Void)
 to cutting-edge methods (MicroSplit).
 
-Documentation for version [
---8<-- "version.txt"
-](https://github.com/CAREamics/careamics/releases/tag/
---8<-- "version.txt"
-).
+--8<-- "version.md"
 
 ## Getting Started
 

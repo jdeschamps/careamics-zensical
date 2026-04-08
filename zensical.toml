@@ -357,7 +357,7 @@ extra_css = [
 # https://zensical.org/docs/customization/#extending-the-theme
 custom_dir = "overrides"
 favicon = "images/favicon_careamics.png"
-logo = "images/logo_careamics_v2_logo.png"
+logo = "images/logo_careamics_v2.png"
 language = "en"
 features = [
     "announce.dismiss", # allow dismissing announcement bar
@@ -436,7 +436,7 @@ pygments_lang_class = true
 [project.markdown_extensions.pymdownx.snippets]
 base_path=[
     "docs/snippets",
-    "extras",
+    "docs/extras",
 ]
 [project.markdown_extensions.pymdownx.tabbed]
 alternate_style = true # necessary for tabs

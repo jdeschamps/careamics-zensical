@@ -39,7 +39,7 @@ jobs:
 
       - name: Pull version from file
         id: version
-        run: echo "VERSION=$(sed 's/^v//; s/\([0-9]*\.[0-9]*\).*/\1/' extras/version.txt)" >> $GITHUB_OUTPUT
+        run: echo "VERSION=$(sed 's/^v//; s/\([0-9]*\.[0-9]*\).*/\1/' docs/extras/version.txt)" >> $GITHUB_OUTPUT
 
       - name: Deploy documentation
         run: |

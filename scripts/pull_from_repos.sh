@@ -63,10 +63,10 @@ copy_careamics_docs_v1() {
 }
 
 
-# write the careamics version (from its latest git tag) to extras/version.txt
+# write the careamics version (from its latest git tag) to docs/extras/version.txt
 write_version() {
   local repo_dir="$FROM_GIT_DIR/careamics"
-  local version_file="$ROOT_DIR/extras/version.txt"
+  local version_file="$ROOT_DIR/docs/extras/version.txt"
 
   if [[ ! -d "$repo_dir/.git" ]]; then
     echo "Error: $repo_dir is not a git repo, skipping version extraction."
@@ -85,6 +85,11 @@ write_version() {
   echo "Writing version $tag to $version_file"
   mkdir -p "$(dirname "$version_file")"
   echo "$tag" > "$version_file"
+
+  # Also generate version.md with a full markdown link
+  local version_md="$ROOT_DIR/docs/extras/version.md"
+  echo "Documentation for version [$tag](https://github.com/CAREamics/careamics/releases/tag/$tag)." > "$version_md"
+  echo "Writing version link to $version_md"
 }
 
 # -- Main
