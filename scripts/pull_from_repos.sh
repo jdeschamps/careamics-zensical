@@ -72,7 +72,7 @@ main() {
     clone_or_update_repo "$url"
   done
 
-  copy_careamics_docs_v1
+  # copy_careamics_docs_v2
 }
 
 main "$@"
