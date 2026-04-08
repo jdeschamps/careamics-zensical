@@ -37,21 +37,6 @@ jobs:
       - name: Build documentation
         run: uv run zensical build --clean
 
-      # - uses: actions/upload-pages-artifact@v4
-      #   with:
-      #     path: site
-
-      # - name: Deploy documentation
-      #   run: |
-      #     git config user.name "github-actions"
-      #     git config user.email "actions@github.com"
-      #     git fetch origin gh-pages --depth=1 || true
-      #     VERSION=$(sed 's/^v//; s/\([0-9]*\.[0-9]*\).*/\1/' extras/version.txt)
-      #     uv run mike delete latest || true
-      #     uv run mike deploy --push --update-aliases "$VERSION" latest
-      #     uv run mike set-default --push latest
-      #   id: deployment
-
       - name: Pull version from file
         id: version
         run: echo "VERSION=$(sed 's/^v//; s/\([0-9]*\.[0-9]*\).*/\1/' extras/version.txt)" >> $GITHUB_OUTPUT
@@ -61,6 +46,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           VERSION=${{ steps.version.outputs.VERSION }}
+          git fetch origin gh-pages --depth=1 || true
           uv run mike delete latest || true
           uv run mike deploy --push --update-aliases "$VERSION" latest
           uv run mike set-default --push latest
