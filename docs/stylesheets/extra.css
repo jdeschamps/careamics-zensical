@@ -1,98 +1,31 @@
-/* ==========================================================================
-   CAREamics custom theme overrides
-   ========================================================================== */
-
-/* ============ LIGHT THEME ============ */
-[data-md-color-scheme="default"] {
-  /* Page background */
-  /* --md-default-bg-color: #fff; */
-
-  /* Body text color */
-  /* --md-default-fg-color: rgba(0, 0, 0, 0.87); */
-
-  /* Header bar background & primary accent (buttons, links, nav tabs) */
-  /* --md-primary-fg-color: #4051b5; */
-  /* --md-primary-fg-color--light: #5d6cc0; */
-  /* --md-primary-fg-color--dark: #303fa1; */
-
-  /* Text on header / primary background */
-  /* --md-primary-bg-color: #fff; */
-
-  /* Accent color (hover highlights, active items) */
-  /* --md-accent-fg-color: #526cfe; */
-
-  /* Website title / heading color */
-  /* --md-typeset-color: var(--md-default-fg-color); */
+/* ============================================================
+   LOGO SIZE
+   Default: height: 1.2rem
+   ============================================================ */
+.md-header__button.md-logo img {
+  height: 1.6rem; /* increase logo size */
 }
 
-/* ============ DARK THEME ============ */
-[data-md-color-scheme="slate"] {
-  /* Page background */
-  /* --md-default-bg-color: hsla(var(--md-hue), 15%, 5%, 1); */
-
-  /* Body text color */
-  /* --md-default-fg-color: hsla(var(--md-hue), 15%, 90%, 0.82); */
-
-  /* Header bar background & primary accent */
-  /* --md-primary-fg-color: #4051b5; */
-
-  /* Text on header / primary background */
-  /* --md-primary-bg-color: #fff; */
-
-  /* Accent color */
-  /* --md-accent-fg-color: #526cfe; */
+/* ============================================================
+   SITE TITLE PLACEMENT
+   Adjust spacing between logo and title
+   ============================================================ */
+.md-header__title {
+  margin-left: -0.6rem;  /* increase gap from logo (default: 0.4rem) */
+  margin-top: 0.45rem;
+  font-size: 1.1rem;     /* increase title size (default: ~0.8rem) */
 }
 
-/* ============ "NOT VIEWING LATEST" VERSION BANNER ============ */
-/* Light theme */
-[data-md-color-scheme="default"] {
-  /* --md-warning-bg-color: #ff9; */
-  /* --md-warning-fg-color: rgba(0, 0, 0, 0.87); */
-}
-/* Dark theme */
-[data-md-color-scheme="slate"] {
-  /* --md-warning-bg-color: #4a3e00; */
-  /* --md-warning-fg-color: #ffe066; */
+/* ============================================================
+   SITE TITLE COLOR — Light theme
+   ============================================================ */
+[data-md-color-scheme="default"] .md-header__topic:first-child .md-ellipsis {
+  color: #b47b32; /*var(--md-primary-bg-color); */
 }
 
-/* ============ GRID CARDS ============ */
-/* Card background (default state) */
-/* Light theme */
-[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li,
-[data-md-color-scheme="default"] .md-typeset .grid.cards > ol > li,
-[data-md-color-scheme="default"] .md-typeset .grid > .card {
-  /* background-color: var(--md-default-bg-color); */
-  /* border-color: var(--md-default-fg-color--lightest); */
-}
-
-/* Card hover / focus state */
-[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li:hover,
-[data-md-color-scheme="default"] .md-typeset .grid.cards > ol > li:hover,
-[data-md-color-scheme="default"] .md-typeset .grid > .card:hover,
-[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li:focus-within,
-[data-md-color-scheme="default"] .md-typeset .grid.cards > ol > li:focus-within,
-[data-md-color-scheme="default"] .md-typeset .grid > .card:focus-within {
-  /* background-color: var(--md-default-bg-color); */
-  /* border-color: transparent; */
-  /* box-shadow: var(--md-shadow-z2); */
-}
-
-/* Dark theme */
-[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li,
-[data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li,
-[data-md-color-scheme="slate"] .md-typeset .grid > .card {
-  /* background-color: var(--md-default-bg-color); */
-  /* border-color: var(--md-default-fg-color--lightest); */
-}
-
-/* Card hover / focus state (dark) */
-[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover,
-[data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li:hover,
-[data-md-color-scheme="slate"] .md-typeset .grid > .card:hover,
-[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:focus-within,
-[data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li:focus-within,
-[data-md-color-scheme="slate"] .md-typeset .grid > .card:focus-within {
-  /* background-color: var(--md-default-bg-color); */
-  /* border-color: transparent; */
-  /* box-shadow: var(--md-shadow-z2); */
+/* ============================================================
+   SITE TITLE COLOR — Dark theme
+   ============================================================ */
+[data-md-color-scheme="slate"] .md-header__topic:first-child .md-ellipsis {
+  color: #b47b32; /*var(--md-primary-bg-color); */
 }

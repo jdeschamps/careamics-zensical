@@ -326,9 +326,6 @@ nav = [
   ]},
 ]
 
-[project.extra.version]
-provider = "mike"
-
 # With the "extra_css" option you can add your own CSS styling to customize
 # your Zensical project according to your needs. You can add any number of
 # CSS files.
@@ -348,6 +345,9 @@ extra_css = [
 #
 # Read more: https://zensical.org/docs/customization/#additional-javascript
 # extra_javascript = ["javascripts/extra.js"]
+
+[project.extra.version]
+provider = "mike"
 
 # ----------------------------------------------------------------------------
 # Section for configuring theme options
